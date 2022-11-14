@@ -1,0 +1,37 @@
+
+.btn-google {
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+}
+.amsl-separator {
+    position: relative;
+    display: block;
+    height: 1px;
+    background: #e0e0e0;
+    border: 0;
+}
+.amsl-separator .amsl-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    box-sizing: border-box;
+    width: 33px;
+    height: 33px;
+    border: 2px solid #dbdbdb;
+    border-radius: 20px;
+    background: #fff;
+    color: #dbdbdb;
+    text-align: center;
+    font-size: 14px;
+    line-height: 27px;
+    transform: translate(-50%,-50%);
+}
+span.amsl-separator {
+    margin: 25px 0;
+}
+img.google-icon {
+    height: 20px;
+    padding-right: 5px;
+}

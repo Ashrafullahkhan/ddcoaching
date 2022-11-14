@@ -1,0 +1,157 @@
+.logo {
+  width: 80%;
+  height: 90%;
+}
+
+.dandelion {
+  background-color: white;
+}
+
+.dandelion #navbarCollapse .navbar-nav a {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgba(0, 78, 106, var(--tw-text-opacity));
+}
+
+@media only screen and (max-width: 600px) {
+  .logo {
+    width: 250px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .sticky-b .logo {
+    width: 40%;
+    height: 40%;
+    animation-name: logo-animation;
+    animation-duration: 1s;
+  }
+}
+
+@keyframes logo-animation {
+  from {
+    width: 80%;
+  }
+
+  to {
+    width: 40%;
+  }
+}
+
+.slick-prev:before {
+  color: black !important;
+}
+
+.slick-prev:after {
+  content: "←";
+  color: black !important;
+}
+
+@media (min-width: 991.98px) {
+  main {
+    padding-left: 240px;
+  }
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  padding: 12% 0 0;
+  /* Height of navbar */
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+  width: 15%;
+  z-index: 600;
+}
+
+@media (max-width: 991.98px) {
+  .sidebar {
+    width: 100%;
+  }
+}
+
+.sidebar .active {
+  border-radius: 5px;
+  font-size: 18px;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* Scrollable contents if viewport is shorter than content. */
+}
+
+.sidebar li.list-group-item {
+  background-color: #828282;
+}
+
+.sidebar li.list-group-item a {
+  color: white !important;
+  text-decoration: none;
+}
+
+.sidedisplayblock {
+  display: block !important;
+}
+
+.sidedisplaynone {
+  display: none !important;
+}
+
+.bg-custom-color {
+  background-color: #828282;
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-collapse {
+    padding-top: 3%;
+    padding: 0 20%;
+  }
+}
+
+@media (min-width: 992px) {
+  .sticky-b.navbar-expand-lg .navbar-collapse {
+    padding-top: 1% !important;
+    padding: 0 20%;
+  }
+  .sticky-b.navbar-expand-lg .navbar-text.small.desktop {
+    padding-top: 1% !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #sidebarMenu {
+    display: none !important;
+  }
+
+  .navbar-nav {
+    text-align: center !important;
+  }
+}
+
+.nav-item.nav-link.active {
+  color: #ffc107 !important;
+}
+@media only screen and (min-width: 600px) {
+  .mobile {
+      display:none !important;
+  }
+  .desktop {
+      display:flex !important;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .mobile {
+      display:flex !important;
+  }
+  .desktop {
+      display:none !important;
+  }
+}

@@ -1,0 +1,13 @@
+.form-group.required .control-label:after {
+    content:"*";color:red;
+  }
+  select.select.form-control-lg.select-register {
+    width: 100%;
+}
+.sign-up-title {
+  text-align: center;
+}
+.register-submit {
+  text-align: center;
+  margin: 0 35%;
+}
