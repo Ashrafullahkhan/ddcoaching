@@ -16,6 +16,18 @@ import { NewsComponent } from './news/news.component';
 import { AboutComponent } from './about/about.component';
 import { CoursesComponent } from './courses/courses.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AngularFireModule} from '@angular/fire/compat';
+
+
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+
+import { environment } from 'src/environments/environment';
+import { LayoutComponent } from './admin/layout/layout.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +40,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     RegisterComponent,
     NewsComponent,
     AboutComponent,
-    CoursesComponent
+    CoursesComponent,
+    LayoutComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +50,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     BrowserAnimationsModule,
     NgbModule,
     SlickCarouselModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDividerModule,
   ],
   providers: [],
 bootstrap: [AppComponent]
