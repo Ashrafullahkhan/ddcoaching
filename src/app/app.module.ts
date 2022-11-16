@@ -28,7 +28,12 @@ import { MatDividerModule } from '@angular/material/divider';
 import { environment } from 'src/environments/environment';
 import { LayoutComponent } from './admin/layout/layout.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from './services/auth.service';
+import { getStorage, provideStorage } from '@angular/fire/storage';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { HotToastModule } from '@ngneat/hot-toast';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,13 +57,20 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
     SlickCarouselModule,
     FontAwesomeModule,
     AngularFireModule.initializeApp(environment.firebase),
+    // provideAuth(() => getAuth()),
+    // provideFirestore(() => getFirestore()),
+    // provideStorage(() => getStorage()),
+    // provideFirestore(() => getFirestore()),
     MatToolbarModule,
     MatSidenavModule,
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HotToastModule.forRoot()
   ],
-  providers: [],
+  providers: [AuthService],
 bootstrap: [AppComponent]
 })
 export class AppModule { }

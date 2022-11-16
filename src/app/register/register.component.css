@@ -3,6 +3,7 @@
   }
   select.select.form-control-lg.select-register {
     width: 100%;
+    height: 50px;
 }
 .sign-up-title {
   text-align: center;
@@ -10,4 +11,13 @@
 .register-submit {
   text-align: center;
   margin: 0 35%;
+}
+
+.red-border{
+  border-color: red;
+}
+
+input,
+input::-webkit-input-placeholder {
+  font-size: 11px;
 }

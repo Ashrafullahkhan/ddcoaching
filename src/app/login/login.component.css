@@ -35,3 +35,13 @@ img.google-icon {
     height: 20px;
     padding-right: 5px;
 }
+
+
+.red-border{
+    border-color: red;
+}
+
+input,
+input::-webkit-input-placeholder {
+    font-size: 11px;
+}

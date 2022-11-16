@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HotToastService } from '@ngneat/hot-toast';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,8 +16,9 @@ export class LoginComponent implements OnInit {
     email: new FormControl('',[Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required])
   })
-  constructor( public router:Router) { }
+  constructor(public authService:AuthService, public router:Router, private toast: HotToastService,) { }
 
+  isSignedIn = false;
   ngOnInit(): void {
   }
 
@@ -26,12 +29,39 @@ export class LoginComponent implements OnInit {
     return this.logingForm.get('password')
   }
 
-  submit(){
-    this.isSubmited = true;
-    if(!this.logingForm.valid){
+  submit() {
+    const { email, password } = this.logingForm.value;
+
+    if (!this.logingForm.valid || !email || !password) {
       return;
-    } 
-    const {email, password} = this.logingForm?.value;
+    }
+
+    this.authService
+    .login(email, password)
+    .pipe(
+      this.toast.observe({
+        success: 'Logged in successfully',
+        loading: 'Logging in...',
+        error: ({ message }) => `There was an error: ${message} `,
+      })
+    )
+    .subscribe(() => {
+      this.router.navigate(['/courses']);
+    });
+  
+    
   }
+  naviage(){
+    this.router.navigate(['/sing'])
+  }
+  // submit(){
+  //   this.isSubmited = true;
+  //   if(!this.logingForm.valid){
+  //     return;
+  //   } 
+  //   const {email, password} = this.logingForm?.value;
+  //   this.authService.login(email,password)
+  //   this.router.navigate(['/courses'])
+  // }
 
 }
