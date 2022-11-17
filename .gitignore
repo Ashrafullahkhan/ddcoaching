@@ -56,3 +56,7 @@ baseline.json
 
 # Husky
 .husky/_
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json

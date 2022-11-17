@@ -18,7 +18,6 @@ import { CoursesComponent } from './courses/courses.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AngularFireModule} from '@angular/fire/compat';
 
-
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
@@ -30,10 +29,13 @@ import { LayoutComponent } from './admin/layout/layout.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
-import { getStorage, provideStorage } from '@angular/fire/storage';
-import { provideAuth, getAuth } from '@angular/fire/auth';
-import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+
 import { HotToastModule } from '@ngneat/hot-toast';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideFunctions,getFunctions } from '@angular/fire/functions';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,10 +59,15 @@ import { HotToastModule } from '@ngneat/hot-toast';
     SlickCarouselModule,
     FontAwesomeModule,
     AngularFireModule.initializeApp(environment.firebase),
-    // provideAuth(() => getAuth()),
-    // provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
     // provideStorage(() => getStorage()),
-    // provideFirestore(() => getFirestore()),
+    provideFirestore(() => getFirestore()),
+    // AngularFireAuthModule,
+    // AngularFirestoreModule,
+    // AngularFireStorageModule,
+    // AngularFireDatabaseModule,
+    
     MatToolbarModule,
     MatSidenavModule,
     MatButtonModule,
@@ -68,7 +75,12 @@ import { HotToastModule } from '@ngneat/hot-toast';
     MatDividerModule,
     FormsModule,
     ReactiveFormsModule,
-    HotToastModule.forRoot()
+    HotToastModule.forRoot(),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase()),
+    provideFirestore(() => getFirestore()),
+    provideFunctions(() => getFunctions())
   ],
   providers: [AuthService],
 bootstrap: [AppComponent]

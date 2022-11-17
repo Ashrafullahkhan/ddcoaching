@@ -9,6 +9,7 @@ import {
 } from "@angular/forms";
 import { Router } from "@angular/router";
 import { HotToastService } from "@ngneat/hot-toast";
+import { switchMap } from "rxjs";
 import { AuthService } from "../services/auth.service";
 
 export function passwordsMatchValidator(): ValidatorFn {
@@ -30,10 +31,11 @@ export function passwordsMatchValidator(): ValidatorFn {
 })
 export class RegisterComponent implements OnInit {
   isSubmited = false;
+  firstName:string = '';
 
   signupForm = new FormGroup(
     {
-      name: new FormControl("", Validators.required),
+      firstName: new FormControl("", Validators.required),
       lastName: new FormControl(""),
       userName: new FormControl(""),
       email: new FormControl("", [Validators.required, Validators.email]),
@@ -48,7 +50,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   get name() {
-    return this.signupForm.get("name");
+    return this.signupForm.get("firstName");
   }
 
   get lastName() {
@@ -80,10 +82,16 @@ export class RegisterComponent implements OnInit {
     console.log('the data...', this.signupForm.value);
     
     if (!this.signupForm.valid) return;
-  
-    const { name, lastName, userName, email, password, signUpAs } =
-      this.signupForm.value;
-      this.authSerivce.signUp(email, password,name, lastName,signUpAs, userName) .pipe(
+    const firstName = this.name
+    const lastName = this.lastName;
+    const signUpAs = this.signupAs;
+    const userName = this.userName
+    const email = this.email;
+    const password = this.password
+    // const { firstName, lastName, userName, email, password, signUpAs } =
+    //   this.signupForm.value;
+      this.authSerivce.signUp(email, password).pipe(
+       switchMap(({user: {uid}}) => this.authSerivce.addUser({uid,firstName, lastName, userName,signUpAs, email})),
         this.toast.observe({
           success: 'Signed up successfully',
           loading: 'Signing up...',

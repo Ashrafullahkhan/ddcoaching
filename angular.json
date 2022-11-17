@@ -107,9 +107,19 @@
               "src/styles.css"
             ],
             "scripts": [
-                "node_modules/jquery/dist/jquery.min.js",
-                "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "icebot:build:production",
+            "firebaseProject": "ddcouching",
+            "firebaseHostingSite": "ddcouching"
           }
         }
       }
