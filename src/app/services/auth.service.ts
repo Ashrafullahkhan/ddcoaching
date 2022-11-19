@@ -67,7 +67,10 @@ export class AuthService {
     })
     )
   }
-
+  logout(): Observable<any> {
+    return from(this.auth.signOut());
+  }
+  
   addUser(user:profileUser):Observable<any>{
     const ref = doc(this.firestore, 'users', user?.uid);
     return from(setDoc(ref,user))

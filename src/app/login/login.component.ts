@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
       })
     )
     .subscribe(() => {
-      this.router.navigate(['/courses']);
+      this.router.navigate(['/layout']);
     });
   
     

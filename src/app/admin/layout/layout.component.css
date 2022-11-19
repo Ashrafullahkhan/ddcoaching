@@ -63,3 +63,24 @@ mat-divider {
   margin-bottom: 16px;
   background-color: rgba(255, 255, 255, 0.5);
 }
+
+
+.logOut{
+  border: none;
+  outline: none;
+  background-color: #ffc104;
+  padding-left: 1em;
+  padding-right: 1em;
+  border-radius: 8px;
+  font-size: 11px;
+  padding-top: .5em;
+  padding-bottom: .5em;
+
+
+}
+
+.logOut:hover{
+  background-color: rgb(255, 145, 0);
+
+  font-size: 11px;
+}

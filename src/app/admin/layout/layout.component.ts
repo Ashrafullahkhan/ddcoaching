@@ -4,6 +4,8 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { delay, filter } from 'rxjs/operators';
 import { NavigationEnd, Router } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { AuthService } from 'src/app/services/auth.service';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @UntilDestroy()
 @Component({
@@ -16,7 +18,7 @@ export class LayoutComponent {
     @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
 
-  constructor(private observer: BreakpointObserver, private router: Router) {}
+  constructor(private observer: BreakpointObserver, private router: Router, private toast: HotToastService,public authService: AuthService) {}
 
   ngAfterViewInit() {
     this.observer
@@ -43,5 +45,13 @@ export class LayoutComponent {
         }
       });
   }
-
+  onLogout(){
+    this.authService.logout() .pipe(
+      this.toast.observe({
+        success: 'Logged Out successfully',
+        loading: 'Logging Out...',
+        error: ({ message }) => `There was an error: ${message} `,
+      })
+    ).subscribe(()=> this.router.navigate(['login']))
+  }
 }

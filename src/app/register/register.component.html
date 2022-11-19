@@ -44,29 +44,28 @@
 								<div class="col-md-6 mb-4">
 									<div class="form-outline form-group required">
 										<label class="form-label control-label" for="password">Password</label>
-										<input type="text" id="password" placeholder="Password" [ngClass]="{'red-border': (isSubmited && password?.errors?.['required'])}" formControlName="password" class="form-control form-control-lg" required="true" />
+										<input type="password" id="password" placeholder="Password" [ngClass]="{'red-border': (isSubmited && password?.errors?.['required'])}" formControlName="password" class="form-control form-control-lg" required="true" />
 									</div>
 								</div>
 								<div class="col-md-6 mb-4">
 									<div class="form-outline form-group required">
 										<label class="form-label control-label" for="confirm_password">Confirm
 											Password</label>
-										<input type="text" id="confirm_password" [ngClass]="{'red-border': (isSubmited && confirmPassword?.errors?.['required'])}" placeholder="Confirm Password" formControlName="confirmPassword" class="form-control form-control-lg" required="true" />
+										<input type="password" id="confirm_password" [ngClass]="{'red-border': (isSubmited && confirmPassword?.errors?.['required'])}" placeholder="Confirm Password" formControlName="confirmPassword" class="form-control form-control-lg" required="true" />
 									</div>
 								</div>
 							</div>
 
 							<div class="row mb-4">
 								<div class="col-12">
-									<div class="form-outline form-group required">
-										<label class="form-label select-label control-label">Sign up as</label>
-										<select formControlName="signUpAs" [ngClass]="{'red-border': (isSubmited && signupAs?.errors?.['required'])}" class="select form-control-lg select-register">
-											<option value="1">Woman</option>
-											<option value="2">Partner</option>
-											<option value="3">Line Manager</option>
-										</select>
+									<label >Sign up as</label>
+									<select class="form-select form-select-sm" formControlName="signUpAs"  [ngClass]="{'red-border': (isSubmited && signupAs?.errors?.['required'])}">
+										<option value="1">Woman</option>
+										<option value="2">Partner</option>
+										<option value="3">Line Manager</option>
+									</select>
+									
 									</div>
-								</div>
 							</div>
 
 

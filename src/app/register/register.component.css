@@ -1,10 +1,10 @@
 .form-group.required .control-label:after {
     content:"*";color:red;
   }
-  select.select.form-control-lg.select-register {
+  /* select.select.form-control-lg.select-register {
     width: 100%;
-    height: 50px;
-}
+    height: 20px;
+} */
 .sign-up-title {
   text-align: center;
 }
@@ -20,4 +20,9 @@
 input,
 input::-webkit-input-placeholder {
   font-size: 11px;
+}
+
+.selects{
+  width: 100%!important;
+  height: 10px!important;
 }

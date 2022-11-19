@@ -8,19 +8,19 @@ import { AboutComponent } from "./about/about.component";
 import { CoursesComponent } from "./courses/courses.component";
 import { DashboardComponent } from "./admin/dashboard/dashboard.component";
 import { LayoutComponent } from "./admin/layout/layout.component";
-// import {
-//   canActivate,
-//   redirectLoggedInTo,
-//   redirectUnauthorizedTo,
-// } from "@angular/fire/auth-guard";
-// const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(["login"]);
-// const redirectLoggedInToHome = () => redirectLoggedInTo(["home"]);
+import {
+  canActivate,
+  redirectLoggedInTo,
+  redirectUnauthorizedTo,
+} from "@angular/fire/auth-guard";
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(["login"]);
+const redirectLoggedInToHome = () => redirectLoggedInTo(["home"]);
 const routes: Routes = [
   { path: "", component: HomeComponent, pathMatch:'full' },
   // {
   //   path: "sign-up",
   //   component: RegisterComponent,
-  //   // ...canActivate(redirectLoggedInToHome),
+    // ...canActivate(redirectLoggedInToHome),
   // },
   {
     path:'sing',
@@ -33,17 +33,17 @@ const routes: Routes = [
   {
     path: "login",
     component: LoginComponent,
-    // ...canActivate(redirectLoggedInToHome),
+    ...canActivate(redirectLoggedInToHome),
   },
   {
     path: "dashboard",
     component: DashboardComponent,
-    // ...canActivate(redirectUnauthorizedToLogin),
+    ...canActivate(redirectUnauthorizedToLogin),
   },
   {
     path: "layout",
     component: LayoutComponent,
-    // ...canActivate(redirectUnauthorizedToLogin),
+    ...canActivate(redirectUnauthorizedToLogin),
   },
 ];
 

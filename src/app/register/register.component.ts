@@ -81,14 +81,14 @@ export class RegisterComponent implements OnInit {
     console.log('the data...', this.signupForm.value);
     
     if (!this.signupForm.valid) return;
-    const firstName = this.name
-    const lastName = this.lastName;
-    const signUpAs = this.signupAs;
-    const userName = this.userName
-    const email = this.email;
-    const password = this.password
-    // const { firstName, lastName, userName, email, password, signUpAs } =
-    //   this.signupForm.value;
+    // const firstName = this.name
+    // const lastName = this.lastName;
+    // const signUpAs = this.signupAs;
+    // const userName = this.userName
+    // const email = this.email;
+    // const password = this.password
+    const { firstName, lastName, userName, email, password, signUpAs } =
+      this.signupForm.value;
       this.authSerivce.signUp(email, password).pipe(
        switchMap(({user: {uid}}) => this.authSerivce.addUser({uid,firstName, lastName, userName,signUpAs, email})),
         this.toast.observe({
@@ -97,7 +97,7 @@ export class RegisterComponent implements OnInit {
           error: ({ message }) => `There was an error: ${message} `,
         })
       ).subscribe(()=>{
-        this.router.navigate(['/courses'])
+        this.router.navigate(['/layout'])
       })
   }
 }
