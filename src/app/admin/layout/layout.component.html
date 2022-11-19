@@ -6,10 +6,12 @@
         </button>
       
         
- 
-        <button class="logOut" (click)="onLogout()">
-            Logout
-        </button>
+        <div class="dispaly:flex;">
+            <a style="margin-right:1em; margin-top:.5em;" (click)="allUser()">Admin</a>
+            <button class="logOut" (click)="onLogout()">
+                Logout
+            </button>
+        </div>
 
 </mat-toolbar>
 
@@ -17,7 +19,7 @@
     <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
         <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
 
-        <h4 class="name">John Smith</h4>
+        <h4 class="name">{{userName}}</h4>
         <p class="designation">Software Engineer</p>
 
         <mat-divider></mat-divider>

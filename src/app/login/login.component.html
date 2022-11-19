@@ -11,8 +11,8 @@
                 <h2 class="fw-bold mb-2 text-uppercase">Hi, Welcome back!</h2>
                 <p class="text-black-50 mb-5">Please enter your login and password!</p>
 
-                <button class="btn btn-lg btn-google btn-block " type="submit">
-                  <i class="fa fa-google mr-2"></i> Login with Google</button>
+                <a class="btn btn-lg btn-google btn-block " type="button"  (click)="authService.loginWithGoogle()" target="_self" >
+                  <i class="fa fa-google mr-2"></i> Login with Google</a>
                 <span class="amsl-separator"><span class="amsl-icon">or</span></span>
                 <form action="#" [formGroup]="logingForm" (ngSubmit)="submit()">
 

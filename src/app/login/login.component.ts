@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
       this.toast.observe({
         success: 'Logged in successfully',
         loading: 'Logging in...',
-        error: ({ message }) => `There was an error: ${message} `,
+        error: "Invalied Username or Password",
       })
     )
     .subscribe(() => {
@@ -54,14 +54,6 @@ export class LoginComponent implements OnInit {
   naviage(){
     this.router.navigate(['/sing'])
   }
-  // submit(){
-  //   this.isSubmited = true;
-  //   if(!this.logingForm.valid){
-  //     return;
-  //   } 
-  //   const {email, password} = this.logingForm?.value;
-  //   this.authService.login(email,password)
-  //   this.router.navigate(['/courses'])
-  // }
+
 
 }

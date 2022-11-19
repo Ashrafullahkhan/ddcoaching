@@ -94,7 +94,7 @@ export class RegisterComponent implements OnInit {
         this.toast.observe({
           success: 'Signed up successfully',
           loading: 'Signing up...',
-          error: ({ message }) => `There was an error: ${message} `,
+          error: 'Invaled Email',
         })
       ).subscribe(()=>{
         this.router.navigate(['/layout'])

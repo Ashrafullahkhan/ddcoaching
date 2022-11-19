@@ -50,6 +50,8 @@ mat-sidenav-container {
 .name {
   margin-top: 8px;
   font-weight: normal;
+  font-size: 12px;
+word-wrap: break-word;
 }
 
 .designation {
