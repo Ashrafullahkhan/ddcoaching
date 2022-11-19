@@ -52,7 +52,7 @@ export class AuthService {
   // }
 
   // signUp(email: any, password: any, name:any,lastName: any,signUpAs: any, userName:any):Observable<any>{
-  //   return from (this.auth.createUserWithEmailAndPassword(this.auth,email, password))
+  //   return from (createUserWithEmailAndPassword(email, password))
   // }
 
 

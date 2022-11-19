@@ -31,7 +31,6 @@ export function passwordsMatchValidator(): ValidatorFn {
 })
 export class RegisterComponent implements OnInit {
   isSubmited = false;
-  firstName:string = '';
 
   signupForm = new FormGroup(
     {
