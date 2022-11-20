@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "ddcouching"
+  },
+  "targets": {
+    "ddcouching": {
+      "hosting": {
+        "icebot": [
+          "ddcouching"
+        ]
+      }
+    }
+  }
+}
