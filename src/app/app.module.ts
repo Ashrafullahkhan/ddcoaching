@@ -42,6 +42,8 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideFunctions,getFunctions } from '@angular/fire/functions';
+import { TopicDetialsComponent } from './topic-detials/topic-detials.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +60,8 @@ import { provideFunctions,getFunctions } from '@angular/fire/functions';
     DashboardComponent,
     CreateCourseComponent,
     DialogOverviewExampleDialog,
-    DialogOverviewExampleDelete
+    DialogOverviewExampleDelete,
+    TopicDetialsComponent
   ],
   imports: [
     BrowserModule,
@@ -85,6 +88,7 @@ import { provideFunctions,getFunctions } from '@angular/fire/functions';
     NgxMatFileInputModule,
   MatFormFieldModule,
  MatRadioModule,
+ DragDropModule,
    FormsModule,
     ReactiveFormsModule,
     HotToastModule.forRoot(),

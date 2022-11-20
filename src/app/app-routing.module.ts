@@ -15,6 +15,7 @@ import {
   redirectLoggedInTo,
   redirectUnauthorizedTo,
 } from "@angular/fire/auth-guard";
+import { TopicDetialsComponent } from "./topic-detials/topic-detials.component";
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(["login"]);
 const redirectLoggedInToHome = () => redirectLoggedInTo(["home"]);
 
@@ -46,6 +47,8 @@ const routes: Routes = [
       { path: '', component: DashboardComponent ,outlet:'second' },
     { path: 'create-course', component:CreateCourseComponent,outlet:'second' },
   ]},
+   { path: 'top-detial', component:TopicDetialsComponent,
+  },
 ];
 
 @NgModule({

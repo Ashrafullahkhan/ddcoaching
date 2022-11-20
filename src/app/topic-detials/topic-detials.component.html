@@ -1,0 +1,57 @@
+<div>
+	<app-header></app-header>
+
+	<div class="d-flex justify-content-center text-center">
+		<div>
+			<h5 style="font-size:24px; font-weight:600">Title</h5>
+			<p style="font-size:16px">Title discription of the topic</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-2"></div>
+		<div class="col-8">
+			<div class="row">
+				<div class="col" style="border: 1px solid gray; border-radius:8px;">
+					<p class="padding-top:.5em;">Content of Overview One</p>
+				</div>
+
+				<div class="row g-1">
+					<div class="col">
+						<div class="label" style="margin-top: 2em; margin-bottom:2em; margin-right: 2em;">
+							<p>Image Title</p>							
+							<p>The Image Content</p>							
+						</div>
+					</div>
+					<div class="col">
+				
+						<div class="images" style="margin-top: 2em; margin-bottom:2em">
+							<img style="width: 400px;" src="../../assets/images/image-007.jpg" alt="">
+						</div>
+					
+					</div>
+					<div class="col">
+						<div class="label" >
+							<div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo" [cdkDropListConnectedTo]="[doneList]"style="padding: 2em; margin-top: 2em; margin-bottom:2em; margin-left: 2em; border: 1px solid gray; border-radius: 8px;"
+								class="example-list" (cdkDropListDropped)="drop($event)">
+								<div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+							</div>
+						</div>
+					</div>
+					<div class="col" >
+						<div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList]" style="padding: 2em; border:1px solid gray; border-radius: 8px; margin-top:2em; margin-bottom:2em; "
+							class="example-list" (cdkDropListDropped)="drop($event)">
+							<div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+						</div>
+					</div>
+				</div>
+				<div class="col" style="border: 1px solid gray; border-radius:8px; margin-bottom: 2em;">
+					<p class="padding-top:.5em;">Content of Overview One</p>
+				</div>
+				<quill-editor></quill-editor>
+			</div>
+
+		</div>
+		<div class="col-2"></div>
+
+	</div>
+</div>
