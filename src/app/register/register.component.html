@@ -1,114 +1,100 @@
 <section class=" gradient-custom">
-    <div class="container py-5 h-100">
-        <div class="row justify-content-center align-items-center h-100">
-            <div class="col-12 col-lg-9 col-xl-7">
-                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
-                    <div class="card-body p-4 p-md-5">
-                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 sign-up-title">Sign Up</h3>
-                        <form>
+	<div class="container py-5 h-100">
+		<div class="row justify-content-center align-items-center h-100">
+			<div class="col-12 col-lg-9 col-xl-7">
+				<div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+					<div class="card-body p-4 p-md-5">
+						<h3 class="mb-4 pb-2 pb-md-0 mb-md-5 sign-up-title">Sign Up</h3>
+						<form  [formGroup]="signupForm" (ngSubmit)="submit()">
+							<div class="row">
+								<div class="col-md-6 mb-4">
+									<div class="form-outline form-group required">
+										<label class="form-label control-label" for="firstName">First Name</label>
+										<input type="text" id="firstName" formControlName="firstName" placeholder="First Name" class="form-control form-control-lg"
+											required 
+										[ngClass]="{'red-border': (isSubmited && name?.errors?.['required'])}"
+											
+											/>
+									</div>
+								</div>
+								<div class="col-md-6 mb-4">
+									<div class="form-outline form-group required">
+										<label class="form-label control-label" for="lastName">Last Name</label>
+										<input type="text" id="lastName" formControlName="lastName" [ngClass]="{'red-border': (isSubmited && lastName?.errors?.['required'])}" placeholder="Last Name" class="form-control form-control-lg" required="true" />
+									</div>
+								</div>
+							</div>
 
-                            <div class="row">
-                                <div class="col-md-6 mb-4">
+							<div class="row">
+								<div class="col-md-6 mb-4">
+									<div class="form-outline form-group required">
+										<label class="form-label control-label" for="username">Username</label>
+										<input type="text" id="username" formControlName="userName" [ngClass]="{'red-border': (isSubmited && userName?.errors?.['required'])}" placeholder="Username" class="form-control form-control-lg" required="true" />
+									</div>
+								</div>
+								<div class="col-md-6 mb-4">
+									<div class="form-outline form-group required">
+										<label class="form-label control-label" for="email">Email</label>
+										<input type="text" id="email" placeholder="Email" [ngClass]="{'red-border': (isSubmited && email?.errors?.['required'])}" formControlName="email" class="form-control form-control-lg" required="true" />
+									</div>
+								</div>
+							</div>
 
-                                    <div class="form-outline form-group required">
-                                        <label class="form-label control-label" for="firstName">First Name</label>
-                                        <input type="text" id="firstName" class="form-control form-control-lg"
-                                            required />
-                                    </div>
+							<div class="row">
+								<div class="col-md-6 mb-4">
+									<div class="form-outline form-group required">
+										<label class="form-label control-label" for="password">Password</label>
+										<input type="password" id="password" placeholder="Password" [ngClass]="{'red-border': (isSubmited && password?.errors?.['required'])}" formControlName="password" class="form-control form-control-lg" required="true" />
+									</div>
+								</div>
+								<div class="col-md-6 mb-4">
+									<div class="form-outline form-group required">
+										<label class="form-label control-label" for="confirm_password">Confirm
+											Password</label>
+										<input type="password" id="confirm_password" [ngClass]="{'red-border': (isSubmited && confirmPassword?.errors?.['required'])}" placeholder="Confirm Password" formControlName="confirmPassword" class="form-control form-control-lg" required="true" />
+									</div>
+								</div>
+							</div>
 
-                                </div>
-                                <div class="col-md-6 mb-4">
-
-                                    <div class="form-outline form-group required">
-                                        <label class="form-label control-label" for="lastName">Last Name</label>
-                                        <input type="text" id="lastName" class="form-control form-control-lg"
-                                            required="true" />
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6 mb-4">
-                                    <div class="form-outline form-group required">
-                                        <label class="form-label control-label" for="username">Username</label>
-                                        <input type="text" id="username" class="form-control form-control-lg"
-                                            required="true" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-4">
-
-                                    <div class="form-outline form-group required">
-                                        <label class="form-label control-label" for="email">Email</label>
-                                        <input type="text" id="email" class="form-control form-control-lg"
-                                            required="true" />
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6 mb-4">
-                                    <div class="form-outline form-group required">
-                                        <label class="form-label control-label" for="password">Password</label>
-                                        <input type="text" id="password" class="form-control form-control-lg"
-                                            required="true" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-4">
-
-                                    <div class="form-outline form-group required">
-                                        <label class="form-label control-label" for="confirm_password">Confirm
-                                            Password</label>
-                                        <input type="text" id="confirm_password" class="form-control form-control-lg"
-                                            required="true" />
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-
-                            <div class="row mb-4">
-                                <div class="col-12">
-                                    <div class="form-outline form-group required">
-                                        <label class="form-label select-label control-label">Sign up as</label>
-                                        <select class="select form-control-lg select-register">
-
-                                            <option value="1">Woman</option>
-                                            <option value="2">Partner</option>
-                                            <option value="3">Line Manager</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
+							<div class="row mb-4">
+								<div class="col-12">
+									<label >Sign up as</label>
+									<select class="form-select form-select-sm" formControlName="signUpAs"  [ngClass]="{'red-border': (isSubmited && signupAs?.errors?.['required'])}">
+										<option value="1">Woman</option>
+										<option value="2">Partner</option>
+										<option value="3">Line Manager</option>
+									</select>
+									
+									</div>
+							</div>
 
 
-                            <div class="form-check mb-4">
-                                <input class="form-check-input" type="checkbox" value="terms_condition" id="terms_condition" checked>
-                                <label class="form-check-label" for="terms_condition">
-                                    I Accept Terms and Conditions
-                                </label>
-                            </div>
-                            <div class="form-check mb-4">
-                                <input class="form-check-input" type="checkbox" value="age_bar" id="age_bar" checked>
-                                <label class="form-check-label" for="age_bar">
-                                    I confirm I'm based in the UK and over 18 years of age.
-                                </label>
-                            </div>
+							<div class="form-check mb-4">
+								<input class="form-check-input" type="checkbox" value="terms_condition" id="terms_condition" checked>
+								<label class="form-check-label" for="terms_condition">
+									I Accept Terms and Conditions
+								</label>
+							</div>
+							<div class="form-check mb-4">
+								<input class="form-check-input" type="checkbox" value="age_bar" id="age_bar" checked>
+								<label class="form-check-label" for="age_bar">
+									I confirm I'm based in the UK and over 18 years of age.
+								</label>
+							</div>
 
-                            <div class="row mb-4">
-                                <p>We are committed to keeping your information safe. We will never share or sell your contact information. Read our Data</p>
-                            </div>
+							<div class="row mb-4">
+								<p>We are committed to keeping your information safe. We will never share or sell your
+									contact information. Read our Data</p>
+							</div>
 
-                            <div class="mt-4 pt-2" >
-                                <input class="btn btn-primary btn-lg register-submit" type="submit" value="Submit" />
-                            </div>
+							<div class="mt-4 pt-2">
+								<input class="btn btn-primary btn-lg register-submit" type="submit" value="Submit" />
+							</div>
 
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>

@@ -1,0 +1,46 @@
+<button mat-raised-button color="success" [routerLink]="['/layout',{outlets:{'second':[]}}]">Courses Dashboard</button>
+<button mat-raised-button  [routerLink]="['/layout',{outlets:{'second':['create-course']}}]">Create Course</button>
+
+<mat-tab-group>
+    <mat-tab label="Course Details"> 
+        <button mat-raised-button color="accent" class="topic" (click)="openDialog()">Create Topic</button>
+     <h2 class="mat-h2">Courses Details</h2>
+<form class="example-form">
+    <mat-form-field class="example-full-width" >
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Enter Please Title" value="">
+    </mat-form-field>
+
+
+<mat-form-field class="example-full-width">
+<ngx-mat-file-input formControlName="file" placeholder="Insert File"></ngx-mat-file-input>
+<mat-icon matSuffix>folder</mat-icon>
+</mat-form-field>
+</form>
+<quill-editor>  </quill-editor>
+    <button mat-raised-button color="accent" class="save">Save</button>
+    </mat-tab>
+    <mat-tab label="Topic one">
+    <h2 class="mat-h2">Topic Details</h2>
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+            <mat-label>Title</mat-label>
+            <input matInput placeholder="Enter Please Title" value="">
+        </mat-form-field>
+  <div>
+    <mat-label>Over View</mat-label>
+    <quill-editor> </quill-editor>
+  </div>
+        <mat-form-field class="example-full-width">
+            <ngx-mat-file-input formControlName="file" placeholder="Insert File"></ngx-mat-file-input>
+            <mat-icon matSuffix>folder</mat-icon>
+        </mat-form-field>
+    </form>
+    <div class="over2">
+        <mat-label>Over View 2</mat-label>
+        <quill-editor> </quill-editor>
+    </div>
+    <button mat-raised-button color="accent" class="save" >Save Changes</button>
+    </mat-tab>
+    <mat-tab label="Topic Two"> Content 3 </mat-tab>
+</mat-tab-group>

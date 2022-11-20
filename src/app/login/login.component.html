@@ -11,23 +11,27 @@
                 <h2 class="fw-bold mb-2 text-uppercase">Hi, Welcome back!</h2>
                 <p class="text-black-50 mb-5">Please enter your login and password!</p>
 
-                <button class="btn btn-lg btn-google btn-block " type="submit">
-                  <i class="fa fa-google mr-2"></i> Login with Google</button>
+                <a class="btn btn-lg btn-google btn-block " type="button"  (click)="authService.loginWithGoogle()" target="_self" >
+                  <i class="fa fa-google mr-2"></i> Login with Google</a>
                 <span class="amsl-separator"><span class="amsl-icon">or</span></span>
-                <div class="form-outline form-black mb-4">
-                  <label class="form-label" style="text-align:left !important; display: block;"
-                    for="email">Email</label>
-                  <input type="email" id="email" class="form-control form-control-lg" />
-                </div>
+                <form action="#" [formGroup]="logingForm" (ngSubmit)="submit()">
 
-                <div class="form-outline form-black mb-4">
-                  <label class="form-label" style="text-align:left !important; display: block;"
-                    for="password">Password</label>
-                  <input type="password" id="password" class="form-control form-control-lg" />
-                </div>
+                  <div class="form-outline form-black mb-4">
+                    <label class="form-label" style="text-align:left !important; display: block;"
+                      for="email">Email</label>
+                    <input type="email" id="email" placeholder="Email Address" class="form-control form-control-lg"
+                      formControlName="email" [ngClass]="{'red-border': (isSubmited && email?.errors?.['required'])}" />
+                  </div>
 
-                <button class="btn btn-warning btn-lg px-5 text-black" type="submit">Login</button>
-
+                  <div class="form-outline form-black mb-4">
+                    <label class="form-label" style="text-align:left !important; display: block;"
+                      for="password">Password</label>
+                    <input type="password" id="password" formControlName="password" placeholder="password"
+                      [ngClass]="{'red-border': (isSubmited && password?.errors?.['required'])}"
+                      class="form-control form-control-lg" />
+                  </div>
+                  <button class="btn btn-warning btn-lg px-5 text-black" type="submit">Login</button>
+                </form>
               </div>
               <div class="row">
                 <div class="col-md-4 col-xs-4 col-sm-4">
@@ -41,7 +45,7 @@
                 </div>
               </div>
               <div class="row sign-up-box">
-                <p class="mb-0">Don't have an account? <a href="/sign-up" class="text-black-50 fw-bold">Sign Up</a>
+                <p class="mb-0">Don't have an account? " <a class="text-black-50 fw-bold" (click)="naviage()">Sign Up</a>
                 </p>
               </div>
             </div>

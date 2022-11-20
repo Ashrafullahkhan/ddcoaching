@@ -1,5 +1,5 @@
 mat-toolbar {
-  background: #004a9f;
+  background-color: #828282;
   color: white;
   height: 8vh;
 }
@@ -7,7 +7,7 @@ mat-toolbar {
 mat-sidenav {
   width: 200px;
   border-right: none;
-  background: #002b5c;
+  background-color: #828282;
   color: white;
   border-radius: 2px;
   padding: 16px;
@@ -50,6 +50,8 @@ mat-sidenav-container {
 .name {
   margin-top: 8px;
   font-weight: normal;
+  font-size: 12px;
+word-wrap: break-word;
 }
 
 .designation {
@@ -62,4 +64,11 @@ mat-divider {
   margin-top: 16px;
   margin-bottom: 16px;
   background-color: rgba(255, 255, 255, 0.5);
+}
+
+.logOut {
+  align-items: center;
+  cursor: pointer;
+
+  margin-left: 5px;
 }
