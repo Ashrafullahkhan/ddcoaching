@@ -17,11 +17,7 @@ import { AboutComponent } from './about/about.component';
 import { CoursesComponent } from './courses/courses.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AngularFireModule} from '@angular/fire/compat';
-<<<<<<< HEAD
 import { MatTableModule } from '@angular/material/table' 
-=======
-
->>>>>>> 86228e29f412194d2f3376ef5534c26afe69ebe9
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatButtonModule} from '@angular/material/button';
@@ -31,7 +27,6 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { environment } from 'src/environments/environment';
 import { LayoutComponent } from './admin/layout/layout.component';
-<<<<<<< HEAD
 import { DashboardComponent,DialogOverviewExampleDelete } from './admin/dashboard/dashboard.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { CreateCourseComponent,DialogOverviewExampleDialog } from './admin/create-course/create-course.component';
@@ -41,12 +36,6 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { QuillModule } from 'ngx-quill';
 import {MatRadioModule} from '@angular/material/radio';
 import { AuthService } from './services/auth.service';
-=======
-import { DashboardComponent } from './admin/dashboard/dashboard.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from './services/auth.service';
-
->>>>>>> 86228e29f412194d2f3376ef5534c26afe69ebe9
 import { HotToastModule } from '@ngneat/hot-toast';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from '@angular/fire/auth';
