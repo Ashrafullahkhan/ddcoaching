@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
-
+import { SwUpdate } from '@angular/service-worker';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,9 +15,10 @@ export class AppComponent {
     {title: 'Third Slide', short: 'Third Slide Short', src: "https://picsum.photos/id/984/900/500"}
   ];
 
-  constructor(config: NgbCarouselConfig) {
+  constructor(config: NgbCarouselConfig, ) {
     config.interval = 2000;
     config.keyboard = true;
     config.pauseOnHover = true;
+
   }
 }
