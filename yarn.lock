@@ -131,6 +131,17 @@
     "rxjs" "6.6.7"
     "source-map" "0.7.4"
 
+"@angular-devkit/core@15.0.0":
+  "integrity" "sha512-2Mg1+eyodO7od2Ax0EaArmm3rDzI2O00pBNU2Upz5hTfHcsqXlPzX5aYjWBiL1lBM0xYLY99dZqSdcQBMZy/Qg=="
+  "resolved" "https://registry.npmjs.org/@angular-devkit/core/-/core-15.0.0.tgz"
+  "version" "15.0.0"
+  dependencies:
+    "ajv" "8.11.0"
+    "ajv-formats" "2.1.1"
+    "jsonc-parser" "3.2.0"
+    "rxjs" "6.6.7"
+    "source-map" "0.7.4"
+
 "@angular-devkit/schematics@^12.0.0 || ^13.0.0 || ^14.0.0", "@angular-devkit/schematics@14.2.9":
   "integrity" "sha512-E7muTIbDqysjQld5r9AGXiW8vKHadkHaGe+0QONpmr8TMAtTMqBFxBXRG9vajiUzt/GcFL9dbGGEwM/1dc7VPQ=="
   "resolved" "https://registry.npmjs.org/@angular-devkit/schematics/-/schematics-14.2.9.tgz"
@@ -139,6 +150,17 @@
     "@angular-devkit/core" "14.2.9"
     "jsonc-parser" "3.1.0"
     "magic-string" "0.26.2"
+    "ora" "5.4.1"
+    "rxjs" "6.6.7"
+
+"@angular-devkit/schematics@15.0.0":
+  "integrity" "sha512-DvIbtan/EOTZyA+r2XxiD10KGl+oZ73BaEbW2E9QbvSKUoVGTu8kQ/4Wg9NeC8B75oJmfQKtIYp1KeB/Wej/yg=="
+  "resolved" "https://registry.npmjs.org/@angular-devkit/schematics/-/schematics-15.0.0.tgz"
+  "version" "15.0.0"
+  dependencies:
+    "@angular-devkit/core" "15.0.0"
+    "jsonc-parser" "3.2.0"
+    "magic-string" "0.26.7"
     "ora" "5.4.1"
     "rxjs" "6.6.7"
 
@@ -165,7 +187,7 @@
   optionalDependencies:
     "parse5" "^5.0.0"
 
-"@angular/cli@^14.2.9":
+"@angular/cli@^14.2.9", "@angular/cli@^15.0.0-next":
   "integrity" "sha512-1cQE7mRrPyzk1sg2UwpbQ/sXQyPukPKdN69o4Bn59Scfl/4wUh53WRPAAHXNudgPYT2ZT3s9Jj2E1cdhi+gxyQ=="
   "resolved" "https://registry.npmjs.org/@angular/cli/-/cli-14.2.9.tgz"
   "version" "14.2.9"
@@ -287,6 +309,15 @@
   "version" "14.2.8"
   dependencies:
     "tslib" "^2.3.0"
+
+"@angular/pwa@^15.0.0":
+  "integrity" "sha512-50io1URgAC+NJ7CcL5klLdpBlI678iCpRR4LY5DFUSm8Oqqga6wsIKmg2dZXVypGjIFPct3OzyowPpI2VBCezw=="
+  "resolved" "https://registry.npmjs.org/@angular/pwa/-/pwa-15.0.0.tgz"
+  "version" "15.0.0"
+  dependencies:
+    "@angular-devkit/schematics" "15.0.0"
+    "@schematics/angular" "15.0.0"
+    "parse5-html-rewriting-stream" "6.0.1"
 
 "@angular/router@~14.2.8":
   "integrity" "sha512-rbKLsa4/scPP8AxaDRQfkLqfg8CbZ163dPqHMixou90uK/dx00LjCyUeS38/otdAYNZhrD0i5nu+k65qwhLX8w=="
@@ -2110,6 +2141,15 @@
     "@angular-devkit/core" "14.2.9"
     "@angular-devkit/schematics" "14.2.9"
     "jsonc-parser" "3.1.0"
+
+"@schematics/angular@15.0.0":
+  "integrity" "sha512-Wr0tMlLuhCYpnub3IpigJKUsXSuEEApw1lm5rciHGY8o8BPccRNxnnTpxnoN1Cm0HyXjRoWL5oaDqUTl/gLj9A=="
+  "resolved" "https://registry.npmjs.org/@schematics/angular/-/angular-15.0.0.tgz"
+  "version" "15.0.0"
+  dependencies:
+    "@angular-devkit/core" "15.0.0"
+    "@angular-devkit/schematics" "15.0.0"
+    "jsonc-parser" "3.2.0"
 
 "@socket.io/component-emitter@~3.1.0":
   "integrity" "sha512-+9jVqKhRSpsc591z5vX+X5Yyw+he/HCB4iQ/RYxw35CEPaY1gnsNE43nf9n9AaYjAQrTiI/mOwKUKdUs9vf7Xg=="
@@ -5388,6 +5428,11 @@
   "resolved" "https://registry.npmjs.org/jsonc-parser/-/jsonc-parser-3.1.0.tgz"
   "version" "3.1.0"
 
+"jsonc-parser@3.2.0":
+  "integrity" "sha512-gfFQZrcTc8CnKXp6Y4/CBT3fTc0OVuDofpre4aEeEpSBPV5X5v4+Vmx+8snU7RLPrNHPKSgLxGo9YuQzz20o+w=="
+  "resolved" "https://registry.npmjs.org/jsonc-parser/-/jsonc-parser-3.2.0.tgz"
+  "version" "3.2.0"
+
 "jsonfile@^4.0.0":
   "integrity" "sha512-m6F1R3z8jjlf2imQHS2Qez5sjKWQzbuuhuJ/FKYFRZvPE3PuHcSMVZzfsLhGVOkfd20obL5SWEBew5ShlquNxg=="
   "resolved" "https://registry.npmjs.org/jsonfile/-/jsonfile-4.0.0.tgz"
@@ -5653,6 +5698,13 @@
   "integrity" "sha512-NzzlXpclt5zAbmo6h6jNc8zl2gNRGHvmsZW4IvZhTC4W7k4OlLP+S5YLussa/r3ixNT66KOQfNORlXHSOy/X4A=="
   "resolved" "https://registry.npmjs.org/magic-string/-/magic-string-0.26.2.tgz"
   "version" "0.26.2"
+  dependencies:
+    "sourcemap-codec" "^1.4.8"
+
+"magic-string@0.26.7":
+  "integrity" "sha512-hX9XH3ziStPoPhJxLq1syWuZMxbDvGNbVchfrdCtanC7D13888bMFow61x8axrx+GfHLtVeAx2kxL7tTGRl+Ow=="
+  "resolved" "https://registry.npmjs.org/magic-string/-/magic-string-0.26.7.tgz"
+  "version" "0.26.7"
   dependencies:
     "sourcemap-codec" "^1.4.8"
 

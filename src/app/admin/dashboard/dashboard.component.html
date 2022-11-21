@@ -1,16 +1,15 @@
 
-
 <button mat-raised-button color="success" class="mybutton" [routerLink]="['/layout',{outlets:{'second':[]}}]">Courses Dashboard</button>
 <button mat-raised-button color="" [routerLink]="['/layout',{outlets:{'second':['create-course']}}]">Create Course</button>
 
-    <table mat-table [dataSource]="dataSource">
+    <table mat-table [dataSource]="Course">
 
         <!-- Position Column -->
-s
+
         <!-- Name Column -->
         <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef> Title </th>
-            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.title}} </td>
         </ng-container>
 
         <!-- Weight Column -->
@@ -24,7 +23,7 @@ s
                     <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="visibility" [routerLink]="['/layout',{outlets:{'second':['create-course']}}]"></mat-icon>
             
                
-            <button mat-raised-button color="warn" (click)="openDelete()">delete</button>
+            <button mat-raised-button color="warn" (click)="removeCourse(element)">delete</button>
             </td>
         </ng-container>
         

@@ -13,11 +13,11 @@ export interface DialogData {
   name: string;
 }
 @Component({
-  selector: 'app-create-course',
-  templateUrl: './create-course.component.html',
-  styleUrls: ['./create-course.component.css'],
+  selector: 'app-update-course',
+  templateUrl: './update-course.component.html',
+  styleUrls: ['./update-course.component.css'],
 })
-export class CreateCourseComponent {
+export class UpdateCourseComponent {
   public courseForm: FormGroup;
   animal: string;
   name: string;
