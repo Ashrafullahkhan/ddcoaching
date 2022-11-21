@@ -1,18 +1,20 @@
 <h1 mat-dialog-title>Add New Topic</h1>
+<form class="example-form" [formGroup]="topicForm" (ngSubmit)="onSubmit()" novalidate>
 <div mat-dialog-content >
-    
+ 
     <mat-form-field>
-        <input matInput [(ngModel)]="data.animal" placeholder="Title">
+        <input matInput formControlName="title" placeholder="Title">
     </mat-form-field>
 <section class="example-section">
   
-    <mat-radio-group >
-        <mat-radio-button class="example-margin" value="after">General</mat-radio-button>
-        <mat-radio-button class="example-margin" value="before">specialised</mat-radio-button>
+    <mat-radio-group  formControlName="category">
+        <mat-radio-button class="example-margin" value="general">General</mat-radio-button>
+        <mat-radio-button class="example-margin" value="specialised">specialised</mat-radio-button>
     </mat-radio-group>
 </section>
 </div>
 <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">No Thanks</button>
-    <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+    <button mat-button type="submit" [disabled]="!topicForm.valid" [mat-dialog-close]="data.animal" cdkFocusInitial>Create</button>
 </div>
+</form>

@@ -32,10 +32,7 @@ import {
   DialogOverviewExampleDelete,
 } from './admin/dashboard/dashboard.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import {
-  CreateCourseComponent,
-  DialogOverviewExampleDialog,
-} from './admin/create-course/create-course.component';
+import { CreateCourseComponent } from './admin/create-course/create-course.component';
 import { MatInputModule } from '@angular/material/input';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -54,6 +51,10 @@ import {
 } from '@angular/fire/firestore';
 
 import { provideFunctions, getFunctions } from '@angular/fire/functions';
+import {
+  UpdateCourseComponent,
+  DialogOverviewExampleDialog,
+} from './admin/update-course/update-course.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { provideFunctions, getFunctions } from '@angular/fire/functions';
     CreateCourseComponent,
     DialogOverviewExampleDialog,
     DialogOverviewExampleDelete,
+    UpdateCourseComponent,
   ],
   imports: [
     BrowserModule,

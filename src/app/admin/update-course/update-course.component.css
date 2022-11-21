@@ -1,0 +1,42 @@
+button {
+  margin: 10px;
+}
+.topic {
+  float: right;
+}
+.save {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.mat-h2 {
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-bottom: 40px;
+}
+.example-full-width {
+  margin-right: 70px;
+  margin-bottom: 20px;
+}
+
+.example-section {
+  margin: 12px 0;
+}
+
+.example-margin {
+  margin: 0 12px;
+}
+.mat-raised-button.mat-success,
+.mat-flat-button.mat-success,
+.mat-fab.mat-success,
+.mat-mini-fab.mat-success {
+  color: #f0fff3;
+  background-color: #155724;
+}
+.mat-raised-button.mat-accent,
+.mat-flat-button.mat-accent,
+.mat-fab.mat-accent,
+.mat-mini-fab.mat-accent {
+  color: #f0fff3;
+  background-color: #e69d17;
+}

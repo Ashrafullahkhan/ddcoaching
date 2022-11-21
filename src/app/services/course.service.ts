@@ -56,7 +56,7 @@ export class CourseService {
       .update({
         title: course.title,
         description: course.description,
-        photoURL: course.photoURL,
+        photourl: course.photourl,
       });
   }
   uploadImage(image: File, path: string): Observable<string> {

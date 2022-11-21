@@ -14,6 +14,7 @@ import {
   redirectLoggedInTo,
   redirectUnauthorizedTo,
 } from '@angular/fire/auth-guard';
+import { UpdateCourseComponent } from './admin/update-course/update-course.component';
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
 
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'sign-up', component: RegisterComponent },
   { path: 'news', component: NewsComponent },
   { path: 'about', component: AboutComponent },
+
   { path: 'courses', component: CoursesComponent },
   { path: '', component: HomeComponent },
   {
@@ -46,6 +48,11 @@ const routes: Routes = [
       {
         path: 'create-course',
         component: CreateCourseComponent,
+        outlet: 'second',
+      },
+      {
+        path: ':id',
+        component: UpdateCourseComponent,
         outlet: 'second',
       },
     ],
