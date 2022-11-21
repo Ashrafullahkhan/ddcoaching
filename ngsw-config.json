@@ -13,9 +13,7 @@
           "/*.css",
           "/*.js"
         ],
-        "urls": [
-          "https://fonts.googleapis.com/**"
-        ]
+        "urls": ["https://fonts.googleapis.com/**"]
       }
     },
     {
@@ -37,7 +35,7 @@
       "cacheConfig": {
         "strategy": "freshness",
         "maxSize": 20,
-        "maxAge": "1hr",
+        "maxAge": "1",
         "timeout": "5s"
       }
     },
@@ -46,7 +44,7 @@
       "urls": ["/courses-collection"],
       "cacheConfig": {
         "strategy": "freshness",
-        "maxAge": "1hr",
+        "maxAge": "1",
         "timeout": "5s",
         "maxSize": 20
       }
