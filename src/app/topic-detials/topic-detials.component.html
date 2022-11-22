@@ -1,5 +1,5 @@
-<div>
-	<app-header></app-header>
+<div style="margin-bottom: 5em; height: 100vh;">
+		<app-header></app-header>
 
 	<div class="d-flex justify-content-center text-center">
 		<div>
@@ -7,51 +7,65 @@
 			<p style="font-size:16px">Title discription of the topic</p>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-2"></div>
-		<div class="col-8">
+	<div class="row" style="display: flex; justify-content:center;">
+		<div class="col-11">
+			<div class="row" style="margin-bottom: .5em;">
+				<p>Content Overview</p>
+			</div>
 			<div class="row">
-				<div class="col" style="border: 1px solid gray; border-radius:8px; align-items: center; padding-top: 1em; padding-bottom: 1em;">
-					<p class="my-auto">Content of Overview One</p>
+				<div class="col-2" style="background-color:#d87460; text-align: center;">
+					<p class="pTitle">Strogen</p>
+					<div style="margin-bottom:1em ; color: white;">
+						<span>Confident, </span>
+						<span>alluring,</span>
+						<span>sensual,</span>
+						<span>fertile,</span>
+					</div>
+					<p style="color: white;">Great sking, feels good, gives you sass, like attention and even creates a more
+						symmetrical apperiance
+					</p>
+					<p style="margin-top: 1em; color:rgb(193, 6, 6); font-size:18px; font-weight:400">Goal: to Rule The world</p>
 				</div>
-
-				<div class="row g-1">
-					<div class="col">
-						<div class="label" style="margin-top: 2em; margin-bottom:2em; margin-right: 2em;">
-							<p>Image Title</p>							
-							<p>The Image Content</p>							
-						</div>
+				<div class="col-1">
+					<div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo" [cdkDropListConnectedTo]="[doneList]"
+						(cdkDropListDropped)="drop($event)">
+						<div class="dropEle" *ngFor="let item of todo" cdkDrag>{{item}}</div>
 					</div>
-					<div class="col">
-				
-						<div class="images" style="margin-top: 2em; margin-bottom:2em">
-							<img style="width: 400px;" src="../../assets/images/image-007.jpg" alt="">
-						</div>
-					
+				</div>
+				<div class="col" style="display:flex; align-items:center;">
+					<img style="width:100%;" src="../../assets/images/image-011.jpg" alt="">
+				</div>
+				<div class="col-1">
+					<div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo" [cdkDropListConnectedTo]="[doneList]"
+						(cdkDropListDropped)="drop($event)">
+						<div class="dropEle" *ngFor="let item of todo" cdkDrag>{{item}}</div>
 					</div>
-					<div class="col">
-						<div class="label" >
-							<div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo" [cdkDropListConnectedTo]="[doneList]"style="padding: 2em; margin-top: 2em; margin-bottom:2em; margin-left: 2em; border: 1px solid gray; border-radius: 8px;"
-								class="example-list" (cdkDropListDropped)="drop($event)">
-								<div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+				</div>
+				<div class="col" style="height: inherit; background-color: #e88009;">
+					<div cdkDropList #doneList="cdkDropList" style="height:100%; margin-bottom: 0;" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList]"
+					 (cdkDropListDropped)="drop($event)">
+						<div class="row gy-0">
+							<div [ngClass]="(done.length == i+1 && odd)?'col-12':'col-6'" *ngFor="let item of done let i = index" cdkDrag>
+								<div class="items" >
+									{{item}}
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="col" >
-						<div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList]" style="padding: 2em; border:1px solid gray; border-radius: 8px; margin-top:2em; margin-bottom:2em; "
-							class="example-list" (cdkDropListDropped)="drop($event)">
-							<div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
-						</div>
-					</div>
 				</div>
-				<div class="col" style="border: 1px solid gray; border-radius:8px; align-items: center; padding-top: 1em; padding-bottom: 1em; margin-bottom: 1em;">
-					<p class="my-auto">Content of Overview Two</p>
-				</div>
-				<quill-editor></quill-editor>
 			</div>
+			<div class="row" style="margin-top: 1em; width: 100%;">
+				<p>Content Overview</p>
+				<div style="width:100%">
+					<quill-editor [formControl]="control"></quill-editor>
 
+				</div>
+				<div style="margin-top:.5em ;">
+					<button type="button" class="btn btn-success" (click)="data()">Success</button>
+				</div>
+			</div>
 		</div>
-		<div class="col-2"></div>
-
 	</div>
 </div>
+
+<app-footer></app-footer>
