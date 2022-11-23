@@ -1,0 +1,98 @@
+<button
+  mat-raised-button
+  color="success"
+  [routerLink]="['/layout', { outlets: { second: [] } }]"
+>
+  Courses Dashboard
+</button>
+<button
+  mat-raised-button
+  [routerLink]="['/layout', { outlets: { second: ['create-course'] } }]"
+>
+  Create Course
+</button>
+
+
+<mat-tab-group
+  [selectedIndex]="selected.value"
+  (selectedIndexChange)="selected.setValue($event)"
+>
+<mat-tab [label]="courseTitle " >
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+        <button mat-raised-button color="accent" class="topic" (click)="openDialog()">
+            Create Topic
+        </button>
+        <h2 class="mat-h2">Courses Details</h2>
+        <form class="example-form" [formGroup]="editForm" (ngSubmit)="onSubmit()" novalidate>
+            <mat-form-field class="example-full-width">
+                <mat-label>Title</mat-label>
+                <input matInput formControlName="title" placeholder="Enter Please Title" value="" />
+            </mat-form-field>
+    
+            <!-- <mat-form-field class="example-full-width">
+                    <ngx-mat-file-input formControlName="photourl" placeholder="Insert File"></ngx-mat-file-input>
+                    <mat-icon matSuffix>folder</mat-icon>
+                 
+                </mat-form-field> -->
+            <div>
+                <quill-editor formControlName="description"> </quill-editor>
+            </div>
+    
+            <button type="submit" [disabled]="!editForm.valid" mat-raised-button color="accent" class="save">
+                Save
+            </button>
+        </form>
+    </div>
+</mat-tab>
+  <mat-tab *ngFor="let tab of Topic; let index = index" [label]="tab.title">
+    <div
+     
+    >
+      <h2 class="mat-h2">Topic Details</h2>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Title</mat-label>
+          <input matInput placeholder="Enter Please Title" value="" />
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Title Discreption</mat-label>
+            <textarea matInput placeholder="Comment">
+                      </textarea>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <ngx-mat-file-input formControlName="file" placeholder="Upload Cover Image"></ngx-mat-file-input>
+            <mat-icon matSuffix>folder</mat-icon>
+        </mat-form-field>
+        <div>
+          <mat-label>Over View</mat-label>
+          <quill-editor> </quill-editor>
+        </div>
+        <mat-form-field class="example-full-width">
+          <ngx-mat-file-input
+            formControlName="file"
+            placeholder="Topic Image"
+          ></ngx-mat-file-input>
+          <mat-icon matSuffix>folder</mat-icon>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Image Title</mat-label>
+            <input matInput placeholder="Enter Please Title" value="" />
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Image Content</mat-label>
+            <input matInput placeholder="Enter Please Title" value="" />
+        </mat-form-field>
+
+
+        <div class="over2">
+            <mat-label>Over View 2</mat-label>
+            <quill-editor> </quill-editor>
+        </div>
+      </form>
+     
+      <button mat-raised-button color="accent" class="save">
+        Save Changes
+      </button>
+    </div>
+  </mat-tab>
+</mat-tab-group>
