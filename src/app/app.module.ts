@@ -20,6 +20,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
@@ -100,6 +101,7 @@ import {
     NgxMatFileInputModule,
     MatFormFieldModule,
     MatRadioModule,
+    MatCheckboxModule,
     FirestoreModule,
     FormsModule,
     ReactiveFormsModule,

@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+} from '@angular/fire/compat/firestore';
 import { from, Observable, switchMap } from 'rxjs';
 import { Course } from '../models/course';
 import {
@@ -14,26 +17,30 @@ import { Topic } from '../models/topic';
   providedIn: 'root',
 })
 export class TopicService {
+  private courseCol: AngularFirestoreCollection<any> | undefined;
   constructor(
     private angularFirestore: AngularFirestore,
     private storage: Storage
   ) {}
-
   getCourseDoc(id) {
     return this.angularFirestore
-      .collection('topic-collection')
+      .collection('courses-collection')
       .doc(id)
       .valueChanges();
   }
-  getCourseList() {
+  getCourseList(id) {
     return this.angularFirestore
-      .collection('topic-collection')
+      .collection('courses-collection')
+      .doc(id)
+      .collection('topic')
       .snapshotChanges();
   }
-  createCourse(topic: Topic) {
+  createCourse(topic: Topic, id) {
     return new Promise<any>((resolve, reject) => {
       this.angularFirestore
-        .collection('topic-collection')
+        .collection('courses-collection')
+        .doc(id)
+        .collection('topic')
         .add(topic)
         .then(
           (response) => {

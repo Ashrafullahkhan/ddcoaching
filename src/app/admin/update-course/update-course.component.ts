@@ -5,7 +5,9 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
+import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Topic } from 'src/app/models/topic';
 import { CourseService } from 'src/app/services/course.service';
 import { TopicService } from 'src/app/services/topic.service';
 
@@ -23,10 +25,14 @@ export class UpdateCourseComponent {
   courseRef: any;
   animal: string;
   name: string;
+  courseTitle = 'course Details';
+  selectedList: any;
+  Topic: Topic[];
 
   constructor(
     public dialog: MatDialog,
     public courseService: CourseService,
+    public topicService: TopicService,
     public formBuilder: FormBuilder,
     private act: ActivatedRoute,
     private router: Router
@@ -37,8 +43,32 @@ export class UpdateCourseComponent {
       photourl: [''],
     });
   }
+  tabs = ['First', 'Second', 'Third'];
+  selected = new FormControl(0);
+
+  addTab(selectAfterAdding: boolean) {
+    this.tabs.push('New');
+
+    if (selectAfterAdding) {
+      this.selected.setValue(this.tabs.length - 1);
+    }
+  }
+
+  removeTab(index: number) {
+    this.tabs.splice(index, 1);
+  }
+
   ngOnInit(): void {
     const id = this.act.snapshot.paramMap.get('id');
+    this.topicService.getCourseList(id).subscribe((res) => {
+      this.Topic = res.map((e) => {
+        return {
+          id: e.payload.doc.id,
+          ...(e.payload.doc.data() as {}),
+        } as Topic;
+      });
+    });
+
     this.courseService.getCourseDoc(id).subscribe((res) => {
       this.courseRef = res;
       this.editForm = this.formBuilder.group({
@@ -48,16 +78,22 @@ export class UpdateCourseComponent {
       });
     });
   }
+  openModel(menuList: any) {
+    console.log('list', menuList);
+    this.selectedList = menuList;
+  }
   onSubmit() {
     const id = this.act.snapshot.paramMap.get('id');
+    console.log('idsss', id);
     this.courseService.updateCourse(this.editForm.value, id);
     this.router.navigate(['layout']);
   }
 
   openDialog(): void {
+    const id = this.act.snapshot.paramMap.get('id');
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: '300px',
-      data: { name: this.name, animal: this.animal },
+      data: { name: id, animal: this.animal },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -66,6 +102,7 @@ export class UpdateCourseComponent {
     });
   }
 }
+
 @Component({
   selector: 'dialog-overview-example-dialog',
   templateUrl: './dialog-overview-example-dialog.html',
@@ -75,10 +112,13 @@ export class DialogOverviewExampleDialog {
   public topicForm: FormGroup;
   animal: string;
   name: string;
+
   constructor(
     public topicService: TopicService,
     public formBuilder: FormBuilder,
     public router: Router,
+    private act: ActivatedRoute,
+
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {
@@ -97,7 +137,8 @@ export class DialogOverviewExampleDialog {
   }
 
   onSubmit() {
-    this.topicService.createCourse(this.topicForm.value);
+    console.log('id', this.data.name);
+    this.topicService.createCourse(this.topicForm.value, this.data.name);
     // this.router.navigate(['']);
   }
 }

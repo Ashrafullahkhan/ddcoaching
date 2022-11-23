@@ -3,6 +3,7 @@ export interface Topic {
   title: string;
   titleDescription: string;
   coverImage: any;
+  category: any;
   overview1: any;
   topicImage?: any;
   imageLables: string;
