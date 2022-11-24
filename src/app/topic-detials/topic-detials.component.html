@@ -13,7 +13,7 @@
 				<p>Content Overview</p>
 			</div>
 			<div class="row">
-				<div class="col-2" style="background-color:#d87460; text-align: center;">
+				<div class="col-lg-2 col-sm-12" style="background-color:#d87460; text-align: center;">
 					<p class="pTitle">Strogen</p>
 					<div style="margin-bottom:1em ; color: white;">
 						<span>Confident, </span>
@@ -26,22 +26,22 @@
 					</p>
 					<p style="margin-top: 1em; color:rgb(193, 6, 6); font-size:18px; font-weight:400">Goal: to Rule The world</p>
 				</div>
-				<div class="col-1">
+				<div class="col-lg-1 col-sm-12" style="margin-top: .5em;">
 					<div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo" [cdkDropListConnectedTo]="[doneList]"
 						(cdkDropListDropped)="drop($event)">
 						<div class="dropEle" *ngFor="let item of todo" cdkDrag>{{item}}</div>
 					</div>
 				</div>
-				<div class="col" style="display:flex; align-items:center;">
+				<div class="col-lg-3 col-sm-12" style="display:flex; align-items:center;">
 					<img style="width:100%;" src="../../assets/images/image-011.jpg" alt="">
 				</div>
-				<div class="col-1">
+				<div class="col-lg-1 col-sm-12" style="margin-top: .5em;">
 					<div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo" [cdkDropListConnectedTo]="[doneList]"
 						(cdkDropListDropped)="drop($event)">
 						<div class="dropEle" *ngFor="let item of todo" cdkDrag>{{item}}</div>
 					</div>
 				</div>
-				<div class="col" style="height: inherit; background-color: #e88009;">
+				<div class="col" style="height: inherit; background-color: #e88009; margin-top: .5em;">
 					<div cdkDropList #doneList="cdkDropList" style="height:100%; margin-bottom: 0;" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList]"
 					 (cdkDropListDropped)="drop($event)">
 						<div class="row gy-0">
@@ -68,4 +68,6 @@
 	</div>
 </div>
 
-<app-footer></app-footer>
+<div style="margin-top: 20%;">
+	<app-footer></app-footer>
+</div>
